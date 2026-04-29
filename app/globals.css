@@ -47,7 +47,8 @@ body { font-family: var(--font-body), Arial, sans-serif; }
 .story-grid { display: grid; gap: 1.4rem; }
 .story-quote { font-family: var(--font-heading), serif; font-size: clamp(1.6rem, 3vw, 2.4rem); color: #f1d7af; margin: .5rem 0 1rem; }
 .story-frame { min-height: 360px; border: 1px solid #6f5028; box-shadow: 0 20px 35px rgba(0,0,0,.35); }
-.textured-panel { background: linear-gradient(160deg, rgba(105,75,39,.5), rgba(21,14,10,.85)), url('https://images.unsplash.com/photo-1577083552431-6e5fd75fc537?auto=format&fit=crop&w=1000&q=80') center/cover; }
+.textured-panel { background: radial-gradient(circle at 15% 20%, rgba(198,152,88,.28), transparent 35%), linear-gradient(160deg, rgba(105,75,39,.55), rgba(21,14,10,.9)); position: relative; }
+.textured-panel::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(12deg, rgba(230,214,184,.06) 0 2px, transparent 2px 8px); mix-blend-mode: screen; }
 
 .atelier-index { border-top: 1px solid #3f2b1a; }
 .atelier-line { display: grid; grid-template-columns: 58px 1fr; gap: .25rem 1rem; padding: 1.05rem .2rem; border-bottom: 1px solid #3f2b1a; transition: background .35s ease; }
@@ -89,3 +90,15 @@ footer { text-align: center; padding: 3rem 1rem; border-top: 1px solid #3a2a1c; 
   .hero-actions .btn { flex: 1 1 100%; text-align: center; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+.composition-surface { display: grid; place-items: center; }
+.ink-layer, .paper-layer { position: absolute; inset: 1.1rem; }
+.ink-layer { background: radial-gradient(circle at 70% 20%, rgba(207,161,93,.3), transparent 40%), radial-gradient(circle at 18% 72%, rgba(89,58,29,.65), transparent 44%), linear-gradient(130deg, #1f1510, #13100d); filter: contrast(1.08); }
+.paper-layer { inset: 1.8rem; background: linear-gradient(150deg, rgba(244,224,192,.16), rgba(116,83,43,.14)); border: 1px solid rgba(211,171,105,.4); }
+.signature-layer { position: absolute; bottom: 2.2rem; left: 2.2rem; font-family: var(--font-heading); font-size: clamp(2.2rem, 4.8vw, 3.2rem); color: rgba(235,198,142,.52); }
+.abstract-composition { position: relative; min-height: 260px; background: radial-gradient(circle at 18% 16%, rgba(225,186,118,.18), transparent 34%), radial-gradient(circle at 82% 74%, rgba(114,77,42,.35), transparent 40%), linear-gradient(145deg, color-mix(in srgb, var(--panel-tint, #b07a45) 32%, #1a130f), #110c09 78%); }
+.abstract-composition::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(-18deg, rgba(228,210,182,.06) 0 2px, transparent 2px 9px); }
+.brush-stroke { position: absolute; width: 62%; height: 28%; top: 22%; left: 10%; border-radius: 80% 20% 60% 30% / 50% 30% 70% 50%; background: linear-gradient(120deg, rgba(213,173,111,.58), rgba(72,48,27,.5)); filter: blur(.3px); }
+.brush-stroke.secondary { top: auto; bottom: 20%; left: auto; right: 8%; transform: rotate(-12deg); opacity: .75; }
+.calligraphy-veil { position: absolute; inset: auto 1rem 1.1rem auto; font-family: var(--font-heading); font-size: clamp(3rem, 8vw, 5rem); color: rgba(239,205,151,.18); }
+.museum-label { backdrop-filter: blur(3px); }
