@@ -31,73 +31,74 @@ export default function Home() {
   };
 
   return (
-    <main className="grain warm-glow min-h-screen bg-[var(--bg-main)] text-[var(--cream)]">
-      <section className="relative min-h-[92vh] overflow-hidden">
-        <Image src="https://images.unsplash.com/photo-1577083552431-6e5fd75fc537?auto=format&fit=crop&w=1800&q=80" alt="خلفية فنية" fill className="object-cover opacity-35" priority />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-[#1a1410]/70 to-[#1a1410]" />
-        <div className="section-wrap flex min-h-[92vh] flex-col justify-center">
-          <p className="mb-4 inline-block w-fit rounded-full border border-amber-700/50 bg-black/30 px-4 py-2 text-sm text-[var(--beige)]">خبرة فنية ممتدة من جيل لجيل</p>
-          <h1 className="text-5xl leading-tight font-semibold sm:text-7xl">القطعة الفريدة<br />معرض الفنون</h1>
-          <p className="mt-5 max-w-2xl text-xl text-[var(--beige)]">أعمال فنية مصنوعة بروح المكان وتاريخ الحرفة.</p>
-          <p className="mt-4 max-w-2xl text-base text-[var(--beige)]/90">لوحات فنية، خط عربي، جداريات، أشغال يدوية، شلالات ونوافير، وتفاصيل تنبض بذوق أصيل.</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#gallery" className="rounded-md bg-[var(--gold)] px-6 py-3 text-[#1a1410] transition hover:brightness-105">شاهد الأعمال</a>
-            <a href="#order" className="rounded-md border border-[var(--gold)] px-6 py-3 text-[var(--cream)] transition hover:bg-[var(--gold)]/10">اطلب عمل مخصوص</a>
+    <main className="gallery-page grain">
+      <section className="hero-cinematic">
+        <Image src="https://images.unsplash.com/photo-1577083552431-6e5fd75fc537?auto=format&fit=crop&w=1800&q=80" alt="خلفية فنية" fill className="hero-image" priority />
+        <div className="hero-overlay" />
+        <div className="hero-calligraphy" aria-hidden>الفريدة</div>
+        <div className="section-wrap hero-content fade-in">
+          <p className="hero-badge">خبرة فنية ممتدة من جيل لجيل</p>
+          <p className="hero-en">The Unique Piece Art Gallery</p>
+          <h1>القطعة الفريدة<br />معرض الفنون</h1>
+          <p className="hero-copy">تجربة معرض فني بروح مصرية أصيلة، حيث تعيش اللوحات والخط والجداريات في أجواء دافئة من الحرفة والتراث.</p>
+          <div className="hero-actions">
+            <a href="#gallery" className="btn btn-gold">شاهد الأعمال</a>
+            <a href="#order" className="btn btn-outline">اطلب عملًا مخصوصًا</a>
           </div>
         </div>
       </section>
 
-      <section className="section-wrap">
-        <h2 className="text-3xl sm:text-4xl">حكاية معرض بدأ من الفن، واستمر بالحرفة.</h2><div className="gold-divider" />
-        <p className="max-w-4xl leading-8 text-[var(--beige)]">القطعة الفريدة ليس مجرد مكان لبيع اللوحات. هو معرض فني قديم نشأ على يد الأب، وتوارثت فيه الحرفة بروحها الأصلية: الرسم، الخط، الأشغال اليدوية، النحت، وتشكيل المساحات الفنية. كل عمل داخل المعرض يحمل لمسة يد، وقرارًا فنيًا، وتفصيلة لا تتكرر. لذلك لا نصنع شيئًا عاديًا. نصنع قطعة لها حضور.</p>
+      <section className="section-wrap fade-in">
+        <h2 className="section-title">حكاية معرض بدأ من الفن، واستمر بالحرفة</h2><div className="gold-divider" />
+        <p className="lead">القطعة الفريدة ليس مجرد مكان لبيع اللوحات. هو معرض فني قديم نشأ على يد الأب، وتوارثت فيه الحرفة بروحها الأصلية: الرسم، الخط، الأشغال اليدوية، النحت، وتشكيل المساحات الفنية. كل عمل داخل المعرض يحمل لمسة يد، وقرارًا فنيًا، وتفصيلة لا تتكرر. لذلك لا نصنع شيئًا عاديًا. نصنع قطعة لها حضور.</p>
       </section>
 
-      <section className="section-wrap">
-        <h2 className="text-3xl sm:text-4xl">خدماتنا الفنية</h2><div className="gold-divider" />
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {siteContent.services.map((service) => <div key={service} className="rounded-lg border border-amber-900/60 bg-[var(--bg-surface)]/80 px-4 py-4 text-lg text-[var(--beige)] transition hover:-translate-y-0.5 hover:border-[var(--gold)]">{service}</div>)}
+      <section className="section-wrap fade-in">
+        <h2 className="section-title">خدماتنا الفنية</h2><div className="gold-divider" />
+        <div className="atelier-grid">
+          {siteContent.services.map((service, i) => <article key={service} className="atelier-item"><span>{String(i + 1).padStart(2, "0")}</span><h3>{service}</h3></article>)}
         </div>
       </section>
 
-      <section id="gallery" className="section-wrap">
-        <h2 className="text-3xl sm:text-4xl">مختارات من أعمالنا</h2><div className="gold-divider" />
-        <div className="grid gap-4 lg:grid-cols-3">
-          {featured && <div className="tile-shadow relative overflow-hidden rounded-xl lg:col-span-2 lg:row-span-2"><Image src={featured.src} alt={featured.title} width={1200} height={800} className="h-full w-full object-cover transition duration-700 hover:scale-105" /><span className="absolute bottom-3 right-3 rounded bg-black/60 px-3 py-1 text-sm">{featured.title}</span></div>}
-          {rest.map((item) => <div key={item.title} className="tile-shadow relative overflow-hidden rounded-xl"><Image src={item.src} alt={item.title} width={700} height={500} className="h-56 w-full object-cover transition duration-700 hover:scale-105" /><span className="absolute bottom-3 right-3 rounded bg-black/60 px-3 py-1 text-sm">{item.title}</span></div>)}
+      <section id="gallery" className="section-wrap fade-in">
+        <h2 className="section-title">مختارات من المعرض</h2><div className="gold-divider" />
+        <div className="masonry">
+          {featured && <article className="art-frame featured"><Image src={featured.src} alt={featured.title} width={1200} height={850} className="art-image" /><div className="label"><p>{featured.title}</p><small>قــطــعــة مميزة</small></div></article>}
+          {rest.map((item) => <article key={item.title} className="art-frame"><Image src={item.src} alt={item.title} width={900} height={700} className="art-image" /><div className="label"><p>{item.title}</p><small>من مجموعة المعرض</small></div></article>)}
         </div>
       </section>
 
-      <section id="order" className="section-wrap">
-        <h2 className="text-3xl sm:text-4xl">اطلب قطعة فنية مخصوصة</h2><div className="gold-divider" />
-        <p className="mb-6 text-[var(--beige)]">لديك مساحة تحتاج إلى عمل فني خاص؟ أرسل لنا الفكرة، المقاس، والخامة المفضلة، وسنقترح عليك تنفيذًا يناسب المكان والميزانية.</p>
-        <form onSubmit={submitWhatsApp} className="grid gap-4 rounded-2xl border border-amber-900/50 bg-[var(--bg-surface)]/75 p-5">
+      <section id="order" className="section-wrap fade-in">
+        <h2 className="section-title">Commission a Unique Piece</h2>
+        <p className="sub-ar">اطلب عملاً فنياً مخصوصاً</p><div className="gold-divider" />
+        <form onSubmit={submitWhatsApp} className="commission-panel">
           {([
             ["name", "الاسم"], ["phone", "رقم الهاتف"], ["workType", "نوع العمل"], ["size", "المقاس"], ["material", "الخامة"], ["budget", "الميزانية التقريبية (اختياري)"]
           ] as Array<[keyof FormState, string]>).map(([key, label]) => (
-            <input key={key} placeholder={label} value={form[key]} onChange={(e) => setForm((f) => ({ ...f, [key]: e.target.value }))} className="rounded-md border border-amber-900/70 bg-black/20 px-4 py-3 text-[var(--cream)] placeholder:text-[var(--beige)]/80 outline-none focus:border-[var(--gold)]" required={key !== "budget"} />
+            <input key={key} placeholder={label} value={form[key]} onChange={(e) => setForm((f) => ({ ...f, [key]: e.target.value }))} required={key !== "budget"} />
           ))}
-          <textarea placeholder="الوصف" value={form.description} onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))} className="min-h-32 rounded-md border border-amber-900/70 bg-black/20 px-4 py-3 placeholder:text-[var(--beige)]/80 outline-none focus:border-[var(--gold)]" required />
-          <button className="rounded-md bg-[var(--gold)] px-6 py-3 font-medium text-[#1a1410] transition hover:brightness-105">إرسال الطلب عبر واتساب</button>
+          <textarea placeholder="الوصف" value={form.description} onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))} required />
+          <button className="btn btn-gold" type="submit">إرسال الطلب عبر واتساب</button>
         </form>
       </section>
 
-      <section className="section-wrap grid gap-12 lg:grid-cols-2">
-        <div><h3 className="text-3xl">تعليم الخط العربي</h3><div className="gold-divider" /><p className="text-[var(--beige)]">نقدم تعليمًا للخط العربي بأسلوب عملي، مناسب للمبتدئين والمهتمين بتطوير مهارتهم في الكتابة الفنية. من أساسيات الحروف إلى تكوين اللوحات، تتعلم الخط كحرفة وفن له روح.</p><a href={`https://wa.me/${siteContent.whatsappPhone}?text=${encodeURIComponent("السلام عليكم، أريد الاستفسار عن مواعيد تعليم الخط العربي.")}`} className="mt-4 inline-block text-[var(--gold)]">اسأل عن مواعيد التعليم</a></div>
-        <div><h3 className="text-3xl">أعمال فنية للمدارس والجامعات</h3><div className="gold-divider" /><p className="text-[var(--beige)]">ننفذ أعمالًا فنية وتعليمية للمؤسسات، تشمل اللوحات، الجداريات، المجسمات، الأعمال اليدوية، والتصميمات الفنية الخاصة بالأنشطة والمعارض.</p><ul className="mt-4 space-y-2 text-[var(--beige)]"><li>• المدارس</li><li>• الجامعات</li><li>• المعارض الطلابية</li><li>• الأنشطة الفنية</li><li>• الديكور الداخلي للمؤسسات</li></ul></div>
+      <section className="section-wrap duo fade-in">
+        <article className="paper-block"><h3>تعليم الخط العربي</h3><p className="lead">نقدم تعليمًا للخط العربي بأسلوب عملي، مناسب للمبتدئين والمهتمين بتطوير مهارتهم في الكتابة الفنية. من أساسيات الحروف إلى تكوين اللوحات، تتعلم الخط كحرفة وفن له روح.</p><a href={`https://wa.me/${siteContent.whatsappPhone}?text=${encodeURIComponent("السلام عليكم، أريد الاستفسار عن مواعيد تعليم الخط العربي.")}`} className="btn btn-outline">اسأل عن مواعيد التعليم</a></article>
+        <article><h3 className="section-title">خدمات فنية للمؤسسات التعليمية</h3><div className="gold-divider" /><p className="lead">ننفذ أعمالًا فنية وتعليمية للمدارس والجامعات ضمن رؤية بصرية تليق بالهوية المؤسسية.</p><div className="chips">{["المدارس", "الجامعات", "المعارض الطلابية", "الأنشطة الفنية", "الديكور الداخلي"].map((chip) => <span key={chip}>{chip}</span>)}</div></article>
       </section>
 
-      <section className="section-wrap">
-        <h2 className="text-3xl sm:text-4xl">ثقة صنعتها السنين</h2><div className="gold-divider" />
-        <div className="grid gap-4 sm:grid-cols-3">{siteContent.testimonials.map((t) => <blockquote key={t} className="rounded-xl border border-amber-900/60 bg-[var(--bg-surface)]/70 p-5 text-[var(--beige)]">“{t}”</blockquote>)}</div>
+      <section className="section-wrap fade-in">
+        <h2 className="section-title">ثقة صنعتها السنين</h2><div className="gold-divider" />
+        <div className="quotes">{siteContent.testimonials.map((t) => <blockquote key={t}>“{t}”</blockquote>)}</div>
       </section>
 
-      <section className="section-wrap">
-        <h2 className="text-3xl sm:text-4xl">زورونا في المعرض</h2><div className="gold-divider" />
-        <p>العنوان: {siteContent.address}</p><p>الهاتف: {siteContent.phones[0]}</p><p>رقم إضافي: {siteContent.phones[1]}</p>
-        <div className="mt-5 flex flex-wrap gap-3"><a href="tel:01098866456" className="rounded-md bg-[var(--gold)] px-5 py-3 text-[#1a1410]">اتصل الآن</a><a href={`https://wa.me/${siteContent.whatsappPhone}`} className="rounded-md border border-[var(--gold)] px-5 py-3">راسلنا واتساب</a><a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteContent.address)}`} className="rounded-md border border-[var(--gold)] px-5 py-3">افتح الخريطة</a></div>
+      <section className="section-wrap contact fade-in">
+        <h2 className="section-title">زورونا في المعرض</h2><div className="gold-divider" />
+        <div className="contact-grid"><article><h4>العنوان</h4><p>{siteContent.address}</p></article><article><h4>الهاتف</h4><p>{siteContent.phones[0]}</p><p>{siteContent.phones[1]}</p></article></div>
+        <div className="hero-actions"><a href="tel:01098866456" className="btn btn-gold">اتصل الآن</a><a href={`https://wa.me/${siteContent.whatsappPhone}`} className="btn btn-outline">راسلنا واتساب</a><a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteContent.address)}`} className="btn btn-outline">افتح الخريطة</a></div>
       </section>
 
-      <footer className="border-t border-amber-900/40 py-10 text-center text-[var(--beige)]"><p className="text-lg">القطعة الفريدة - معرض الفنون</p><p>The Unique Piece Art Gallery</p><p className="mt-2 text-sm">Handcrafted art, calligraphy, murals, and custom pieces.</p></footer>
+      <footer><p className="f-title">القطعة الفريدة - معرض الفنون</p><p>The Unique Piece Art Gallery</p></footer>
     </main>
   );
 }
