@@ -4,15 +4,16 @@ export type GalleryItem = {
   material: string;
   kind: string;
   tint: string;
+  variant: "canvas" | "calligraphy" | "classic" | "craft" | "relief" | "water" | "mural";
   featured?: boolean;
 };
 
 export const galleryItems: GalleryItem[] = [
-  { title: "نسيج قماشي ولوحة معاصرة", subtitle: "Canvas Atmosphere I", material: "قماش / ألياف", kind: "تفصيل تجريدي", tint: "#b08a5d", featured: true },
-  { title: "تفصيل خط عربي", subtitle: "Calligraphic Veil", material: "حبر / ورق", kind: "حروفية", tint: "#8f6d46" },
-  { title: "إطار ذهبي كلاسيك", subtitle: "Framed Silence", material: "خشب / طلاء", kind: "تركيب", tint: "#9a6f3f" },
-  { title: "تفاصيل صناعة يدوية", subtitle: "Atelier Gesture", material: "خشب / معدن", kind: "حرفة", tint: "#7f5c3a" },
-  { title: "سطح جداري بارز", subtitle: "Relief Surface Study", material: "جبس / إسمنت", kind: "نحت بارز", tint: "#71543a" },
-  { title: "عنصر مائي ضوئي", subtitle: "Luminous Flow", material: "حجر / ماء", kind: "شلالات ونوافير", tint: "#6d5748" },
-  { title: "سطح جداري لوني", subtitle: "Museum Wall Tone", material: "أكريليك / جدار", kind: "جدارية", tint: "#9c7c58" }
+  { title: "دراسة لونية معاصرة", subtitle: "Contemporary Color Study", material: "قماش / أكريليك", kind: "لوحة معاصرة", tint: "#b08a5d", variant: "canvas", featured: true },
+  { title: "دراسة حروفية", subtitle: "Calligraphic Study", material: "حبر / ورق", kind: "خط عربي", tint: "#8f6d46", variant: "calligraphy" },
+  { title: "تصور لإطار كلاسيكي", subtitle: "Classic Frame Concept", material: "خشب / تذهيب", kind: "تابلوه كلاسيكي", tint: "#9a6f3f", variant: "classic" },
+  { title: "أثر صناعة يدوية", subtitle: "Handcrafted Surface Study", material: "خشب / خامات مختارة", kind: "حرفة يدوية", tint: "#7f5c3a", variant: "craft" },
+  { title: "دراسة جدارية بارزة", subtitle: "Bas-Relief Wall Study", material: "جبس / إسمنت", kind: "نحت بارز", tint: "#71543a", variant: "relief" },
+  { title: "دراسة ماء وضوء", subtitle: "Water & Light Study", material: "حجر / ماء", kind: "عنصر مائي", tint: "#6d5748", variant: "water" },
+  { title: "سطح جداري فني", subtitle: "Artistic Wall Surface", material: "أكريليك / جدار", kind: "جدارية", tint: "#9c7c58", variant: "mural" }
 ];
