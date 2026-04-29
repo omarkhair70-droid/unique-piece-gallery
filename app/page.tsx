@@ -43,6 +43,7 @@ export default function Home() {
   return (
     <main className="gallery-page grain">
       <section className="opening-stage">
+        <div className="hero-atmosphere" aria-hidden />
         <div className="opening-overlay" />
         <div className="spotlight" />
         <div className="spotlight spotlight-2" />
