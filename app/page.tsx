@@ -76,8 +76,8 @@ export default function Home() {
       <section id="gallery" className="section-wrap fade-in">
         <p className="micro-label">04 / DIGITAL EXHIBITION</p><h2 className="section-title">معرض بصري مُنسّق</h2><div className="gold-divider" />
         <div className="exhibit-grid">
-          {featured && <article className="art-frame featured" style={{ ["--panel-tint" as string]: featured.tint }}><div className="art-image abstract-composition" aria-hidden><span className="brush-stroke" /><span className="brush-stroke secondary" /><span className="calligraphy-veil">فن</span></div><div className="museum-label"><p>{featured.title}</p><small>{featured.subtitle}</small><div className="meta"><span>{featured.material}</span><span>{featured.kind}</span></div></div></article>}
-          {rest.map((item, index) => (<article key={item.title} className={`art-frame tone-${(index % 3) + 1}`} style={{ ["--panel-tint" as string]: item.tint }}><div className="art-image abstract-composition" aria-hidden><span className="brush-stroke" /><span className="brush-stroke secondary" /><span className="calligraphy-veil">حرف</span></div><div className="museum-label"><p>{item.title}</p><small>{item.subtitle}</small><div className="meta"><span>{item.material}</span><span>{item.kind}</span></div></div></article>))}
+          {featured && <article className="art-frame featured" style={{ ["--panel-tint" as string]: featured.tint }}><div className={`art-image visual-study ${item.variant}`} aria-hidden><span className="visual-layer" /><span className="visual-layer secondary" /><span className="calligraphy-veil">فن</span></div><div className="museum-label"><p>{featured.title}</p><small>{featured.subtitle}</small><div className="meta"><span>{featured.material}</span><span>{featured.kind}</span></div></div></article>}
+          {rest.map((item, index) => (<article key={item.title} className={`art-frame tone-${(index % 3) + 1}`} style={{ ["--panel-tint" as string]: item.tint }}><div className={`art-image visual-study ${item.variant}`} aria-hidden><span className="visual-layer" /><span className="visual-layer secondary" /><span className="calligraphy-veil">حرف</span></div><div className="museum-label"><p>{item.title}</p><small>{item.subtitle}</small><div className="meta"><span>{item.material}</span><span>{item.kind}</span></div></div></article>))}
         </div>
       </section>
 
@@ -87,6 +87,32 @@ export default function Home() {
       </section>
 
       <section className="section-wrap contact fade-in"><p className="micro-label">06 / INVITATION</p><h2 className="section-title">ادخلوا إلى المكان</h2><div className="gold-divider" /><p className="lead">ليس المطلوب زيارة واجهة… بل دخول تجربة فنية تُصنع خصيصًا لكم.</p><div className="contact-grid"><article><h4>الهاتف</h4><p>{siteContent.phones[0]}</p><p>{siteContent.phones[1]}</p></article><article><h4>واتساب</h4><p>متاح يوميًا للطلبات الخاصة والاستفسارات.</p></article><article><h4>الخريطة</h4><p>{siteContent.address}</p></article></div><div className="hero-actions"><a href="tel:01098866456" className="btn btn-gold">اتصل الآن</a><a href={`https://wa.me/${siteContent.whatsappPhone}`} className="btn btn-outline">راسلنا واتساب</a><a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteContent.address)}`} className="btn btn-outline">افتح الخريطة</a></div></section>
+
+
+
+      <section className="section-wrap editorial-grid fade-in">
+        <article className="editorial-block">
+          <p className="micro-label">07 / CALLIGRAPHY STUDIO</p>
+          <h2>تعليم الخط العربي</h2><div className="gold-divider" />
+          <p>حصص عملية للناشئين والكبار تبدأ من ميزان الحروف حتى بناء لوحة حروفية متكاملة.</p>
+          <div className="chip-row"><span>ثلث</span><span>نسخ</span><span>تكوين لوحي</span></div>
+          <a href={`https://wa.me/${siteContent.whatsappPhone}?text=${encodeURIComponent("أرغب في تفاصيل تعليم الخط العربي")}`} className="btn btn-gold">احجز عبر واتساب</a>
+        </article>
+        <article className="editorial-block">
+          <p className="micro-label">08 / EDUCATION PROJECTS</p>
+          <h2>أعمال المدارس والجامعات</h2><div className="gold-divider" />
+          <p>تصميم وتنفيذ مشروعات فنية للممرات، القاعات، والفعاليات بما يخدم هوية المؤسسة التعليمية.</p>
+          <div className="chip-row"><span>جداريات</span><span>هوية بصرية</span><span>تنفيذ ميداني</span></div>
+          <a href={`https://wa.me/${siteContent.whatsappPhone}?text=${encodeURIComponent("أرغب في عرض لأعمال فنية للمدرسة/الجامعة")}`} className="btn btn-gold">اطلب عرض المشروع</a>
+        </article>
+        <article className="editorial-block">
+          <p className="micro-label">09 / TRUST</p>
+          <h2>ثقة صنعتها السنين</h2><div className="gold-divider" />
+          <p>سنوات من التنفيذ الحرفي داخل المنازل والمساحات التجارية والتعليمية، مع عناية بالتفاصيل من الفكرة حتى التسليم.</p>
+          <div className="chip-row"><span>تنفيذ مخصص</span><span>خامات منتقاة</span><span>متابعة مباشرة</span></div>
+          <a href={`https://wa.me/${siteContent.whatsappPhone}?text=${encodeURIComponent("أرغب في استشارة فنية مخصصة")}`} className="btn btn-gold">ابدأ استشارة واتساب</a>
+        </article>
+      </section>
 
       <footer><p className="f-title">The Unique Piece Art Gallery</p><p>Handmade Heritage · Egyptian Artistry</p></footer>
     </main>
