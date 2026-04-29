@@ -13,9 +13,6 @@ export const siteContent = {
     "تابلوهات مودرن",
     "تابلوهات كلاسيك"
   ],
-  testimonials: [
-    "تنفيذ محترم وتفاصيل جميلة.",
-    "الشغل طلع أحسن من المتوقع.",
-    "المعرض عنده ذوق قديم وأصيل."
-  ]
+  brandLine: "ليست مجرد قطعة… إنها أثر يد وحكاية مكان.",
+  englishLine: "The Unique Piece Art Gallery"
 };
